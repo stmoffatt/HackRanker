@@ -15,7 +15,7 @@ The second line contains n space-separated integers (a[1],a[2],...,an[n]) descri
 
 Note: Non-positive arrival times (a[i]<0) indicate the student arrived early or on time; positive arrival times (a[i]>0) indicate the student arrived a[i] minutes late.
 
-For example, there are n=6  students who arrive at timesa  = [-1,-1,0,0,1,1] . Four are there on time, and two arrive late. If there must be k=4 for class to go on, in this case the class will continue. If there must be k=5, then class is cancelled.
+For example, there are n=6  students who arrive at times a  = [-1,-1,0,0,1,1] . Four are there on time, and two arrive late. If there must be k=4 for class to go on, in this case the class will continue. If there must be k=5, then class is cancelled.
 
 Function Description
 
@@ -31,11 +31,13 @@ function angryProfessor(k, a) {
   var ans = 'YES'
   var count = 0
 
+  //loop through array, add to count if element is less than or equal to zero
   a.forEach(e => {
     if (e <= 0) {
       count++
     }
   })
+  //if count is greater than or equal to k class is not canceled
   if (count >= k) {
     ans = 'NO'
   }

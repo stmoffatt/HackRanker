@@ -20,23 +20,23 @@ The first line contains an integer n, the number of pages in the book.
 The second line contains an integer, p, the page that Brie's teacher wants her to turn to.
  */
 
-
 function pageCount(n, p) {
-    var front = 0
-    var back = 0
+  var front = 0
+  var back = 0
 
-
-    for (var i = 1; i <= p; i++) {
-        if (i % 2 === 0) {
-            front++
-        }
+  //loops from the front i starts at 1 to include first page, if page is even means there was a page flip add it to count
+  for (var i = 1; i <= p; i++) {
+    if (i % 2 === 0) {
+      front++
     }
+  }
 
-    for (var j = n-1; j >= p; j--) {
-        if (j % 2 !== 0) {
-            back++
-        }
+  //loops from back if page is uneven means there was a page flip count to back
+  for (var j = n - 1; j >= p; j--) {
+    if (j % 2 !== 0) {
+      back++
     }
-    return Math.min(front, back)
-
+  }
+  //find lowest count
+  return Math.min(front, back)
 }

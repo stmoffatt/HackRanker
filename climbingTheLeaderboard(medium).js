@@ -22,19 +22,24 @@ The next line contains an integer, m, denoting the number games Alice plays.
 The last line contains m space-separated integers alice[j], the game scores. */
 
 function climbingLeaderboard(scores, alice) {
+  // creates new array of scores with duplicate elements removed
   var newScores = [...new Set(scores)]
   var results = []
 
   var i = newScores.length - 1
 
   alice.forEach(e => {
+    //newScores is in descending order, while alice is in ascending order so sort through newscores from back and alice from front so that the numbers are in proper order
     while (i >= 0) {
+      //if alices number is bigger than newScores iterate to the next number on newScores until alices score is less than newScores as that will be the spot for alice on the leaderboard
       if (e >= newScores[i]) i--
       else {
+        //add i + 2 to indicate alices placment on leaderboard. add 2 to make up for -1 in i and index starting at 0.
         results.push(i + 2)
         break
       }
     }
+    //if index < 0 this indicates that allison number is in first on the leaderboard
     if (i < 0) results.push(1)
   })
 

@@ -29,6 +29,7 @@ function utopianTree(n) {
   var c = 0
   var ans = 0
   while (n >= c) {
+    //loops through growth cycles, adds 1 on even cycles, multiples by 2 on odd
     if (c % 2 == 0) {
       ans++
     } else {

@@ -24,6 +24,7 @@ function designerPdfViewer(h, word) {
   var max = 0
   word = word.split('')
 
+  //searches through word array uses charCodeAt to find the numeric value of letter higher letter = higher numeric value. adds the highest number to max. max* length of word to find area.
   word.forEach(e => {
     if (max <= h[e.charCodeAt(0) - 97]) {
       max = h[e.charCodeAt(0) - 97]
